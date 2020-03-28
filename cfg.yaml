@@ -1,0 +1,231 @@
+---
+# +---------------------------------------------------------------------------+
+# | cfg.yaml                                                                  |
+# |                                                                           |
+# | This is the Pankyll configuration for the project site.                   |
+# |                                                                           |
+# | Version: 0.1.0                                                            |
+# |                                                                           |
+# | Changes:                                                                  |
+# |                                                                           |
+# | 0.1.0 2020-03-24 Christian Külker <c@c8i.org>                             |
+# |     - initial release                                                     |
+# |                                                                           |
+# +---------------------------------------------------------------------------+
+#
+# 1. Global site parameters
+site:
+  url:         /                           # URL prefix - mandatory (trailing slash)
+  title:       Pankyll Themes              # string     - mandatory (fallback)
+  content_dir: content                     # directory  - mandatory
+  public_dir:  public                      # directory  - mandatory
+  themes_dir:  themes                      # directory  - mandatory
+  theme_name:  pankyll-theme-newspaper     # directory  - mandatory
+
+# 2. Feature: Localization - Mandatory
+l10n:           # localization - mandatory
+  default: en   # default language - mandatory
+
+languages:
+    - en
+    - de
+    - ja
+
+# 3. Feature: Imprint
+imprint:
+    en:
+      url:   en/Imprint/
+      text:  Imprint
+      dir:   en/Imprint
+    de:
+      url:   de/Imprint/
+      text:  Impressum
+      dir:   de/Imprint
+    ja:
+      url:   ja/Imprint/
+      text:  インプリント
+      dir:   ja/Imprint
+
+# 4. Feature: Home
+home:
+    en:
+        text: Pankyll Themes  # home_text
+        url:  en/             # home_url
+    de:
+        text: Pankyll Layouts
+        url:  de/
+    ja:
+        text: パンキュル　セーム
+        url:  ja/
+
+# 5. Feature: Navigation
+navigation:
+    en:
+        - link:
+            text: Pankyll
+            url:  en/Pankyll/
+        - link:
+            text: Pankyll Themes
+            url:  en/Pankyll-Themes/
+        - link:
+            text: Pankyll Theme Example
+            url:  en/Pankyll-Theme-Example/
+        - link:
+            text: Categories
+            url:  en/Categories/
+        - link:
+            text: Tags
+            url:  en/Tags/
+    de:
+        - link:
+            text: Pankyll
+            url:  de/Pankyll/
+        - link:
+            text: Pankyll Theme
+            url:  de/Pankyll-Themes/
+        - link:
+            text: Pankyll Theme Example
+            url:  de/Pankyll-Theme-Example/
+        - link:
+            text: Kategorien
+            url:  de/Categories/
+        - link:
+            text: Stichworte
+            url:  de/Tags/
+    ja:
+        - link:
+            text: Pankyll
+            url:  ja/Pankyll/
+        - link:
+            text: Pankyll Theme
+            url:  ja/Pankyll-Themes/
+        - link:
+            text: Pankyll Theme Example
+            url:  ja/Pankyll-Theme-Example/
+        - link:
+            text: カテゴリー
+            url:  ja/Categories/
+        - link:
+            text: タグ
+            url:  ja/Tags/
+
+# 6. Feature: Table Of Contents
+toc:
+    en:
+        text: Table Of Contents # alternative: Contents
+    de:
+        text: Inhalt
+    ja:
+        text: 目次
+
+# 7. Feature: Keywords
+keywords:
+    - categories
+    - tags
+
+categories:
+    en:
+        text: Categories
+        url:  en/Categories/
+        dir:  Categories
+    de:
+        text: Kategorien
+        url:  de/Categories/
+        dir:  Categories
+    ja:
+        text: カテゴリー
+        url:  ja/Categories/
+        dir:  Categories
+
+tags:
+    en:
+        text: Tags
+        url:  en/Tags/
+        dir:  Tags
+    de:
+        text: Stichworte
+        url:  de/Tags/
+        dir:  Tags
+    ja:
+        text: タグ
+        url:  ja/タグ/
+        dir:  タグ
+
+# 8. Feature: More-Menu (not used by newspaper theme)
+more:
+    en:
+        - link:
+            text: Categories
+            url:  en/Categories/
+        - link:
+            text: Tags
+            url:  en/Tags/
+    de:
+        - link:
+            text: Kategorien
+            url:  de/Categories/
+        - link:
+            text: Stichworte
+            url:  de/Tags/
+    ja:
+        - link:
+            text: カテゴリー
+            url:  ja/Categories/
+        - link:
+            text: タグ
+            url:  ja/Tags/
+
+# 9.  Feature: Description
+description:
+    en:
+        text: Pankyll Documentation
+    de:
+        text: Pankyll Dokumentation
+    ja:
+        text: パンキュルのドキュメンテーション
+
+# 10. Feature: Footer
+#     supports categories:
+#         - contact            # own contact data
+#         - githome            # github repository of your project
+#         - pankyll            # pankyll repository
+#         - theme              # theme repository
+#         - copyright          # list of copyright holders
+#         - license            # link to license
+#     supports keys:
+#         - text
+#         - icon
+#         - url
+#         - desc
+#     supported types: envelope, github
+#         - to support more types edit default.css
+footer:
+    en:
+        contact:
+            text: Mail # Link text
+            icon: envelope # Icon CSS class part, fa-TYPE
+            url:  mailto:pankyll-newspaper-theme-example@c8i.org  # URL
+            desc: Write me a mail if you have a question # not used in theme rankle
+        githome:
+            text: Github
+            icon: github
+            url:  https://github.com/ckuelker/pankyll-theme-newspaper-example
+            desc: Github Page for Pankyll The
+        pankyll:
+            text: Pankyll
+            icon: github
+            url:  https://github.com/ckuelker/pankyll
+            desc: Github Page for Pankyll
+        theme:
+            text: Newspaper
+            icon: github
+            url:  https://github.com/ckuelker/pankyll-theme-newspaper
+            desc: Theme for Pankyll
+        copyright: # list of '- text:'
+            - text: © 2020 Christian Külker, All Rights Reserved
+        license:
+            text: FDL v1.3
+            icon: paragraph
+            url:  en/License
+            desc: GNU Free Documentation License v1.3
+

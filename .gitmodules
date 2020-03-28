@@ -1,0 +1,12 @@
+[submodule "pandoc"]
+	path = pandoc
+	url = https://github.com/ckuelker/pankyll-pandoc
+	branch = master
+[submodule "content"]
+	path = content
+	url = https://github.com/ckuelker/pankyll-example-content
+	branch = master
+[submodule "themes/pankyll-theme-newspaper"]
+	path = themes/pankyll-theme-newspaper
+	url = https://github.com/ckuelker/pankyll-theme-newspaper.git
+	branch = master
