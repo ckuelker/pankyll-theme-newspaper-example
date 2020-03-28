@@ -1,7 +1,7 @@
 ---
 title:  pankyll-theme-newspaper-example/README.md
 author: Christian Külker
-date:   2020-03-22
+date:   2020-03-28
 
 ---
 
@@ -23,6 +23,7 @@ that can be used as base to build up a new site.
 
 | Version | Date       | Author           | Notes                             |
 | ------- | ---------- | ---------------- | --------------------------------- |
+| 0.1.1   | 2020-03-28 | Christian Külker | README.md: usage, port, license   |
 | 0.1.0   | 2020-03-22 | Christian Külker | Initial release                   |
 
 # Introduction
@@ -36,7 +37,7 @@ theme with a little bit of content to see how easy it is to set up a
 
 **TLTR:**
 
-Require [Pankyll](https://github.com/ckuelker/pankyll/) and for Debian install
+Requires [Pankyll](https://github.com/ckuelker/pankyll/) and for Debian install
 the following:
 
 ```bash
@@ -83,7 +84,7 @@ aptitude install fonts-noto-cjk fonts-wqy-microhei
 
 A control file (Makefile) is used to control easy build. If you do not want to
 use it just run the `pankyll` command inside your project directory. If you
-want to use it see next section about usage.
+want to use it see the usage section.
 
 **Installation for Debian:**
 
@@ -104,9 +105,9 @@ git clone --recursive https://github.com/ckuelker/pankyll-theme-newspaper-exampl
 Build the site
 
 ```bash
+cd pankyll-theme-newspaper-example
 make submodule-update # this takes some time
 make realclean
-cd pankyll-theme-newspaper-example
 make build
 ```
 
@@ -122,9 +123,7 @@ Or shorter:
 make submodule-update realclean build server
 ```
 
-
-Open a browser and access the URL [http://localhost:8888](http://localhost:8888)
-
+Open a browser and access the URL [http://localhost:8000](http://localhost:8000)
 
 # Author
 
@@ -136,7 +135,7 @@ Open a browser and access the URL [http://localhost:8888](http://localhost:8888)
 
     This program is free software; you can redistribute it and/or modify it
     under the terms of the GNU General Public License as published by the Free
-    Software Foundation; either version 2, or (at your option) any later
+    Software Foundation; either version 3, or (at your option) any later
     version.
 
     This program is distributed in the hope that it will be useful, but WITHOUT
@@ -160,7 +159,7 @@ Open a browser and access the URL [http://localhost:8888](http://localhost:8888)
     SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,
     REPAIR, OR CORRECTION.
 
-# LIMITATON OF LIABILITY
+# LIMITATION OF LIABILITY
 
     IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL
     ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE
