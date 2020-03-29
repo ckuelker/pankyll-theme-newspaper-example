@@ -3,9 +3,13 @@
 # |                                                                           |
 # | Pankyll-Theme-Newspaper-Example                                           |
 # |                                                                           |
-# | Version: 0.1.0 (change inline)                                            |
+# | Version: 0.1.1 (change inline)                                            |
 # |                                                                           |
 # | Changes:                                                                  |
+# |                                                                           |
+# | 0.1.1 2020-03-29 Christian Külker <c@c8i.org>                             |
+# |     - capture pankyll output: pankyll.err, pankyll.out, pankyll.log       |
+# |     - clean: removes pankyll.err, pankyll.out, pankyll.log                |
 # |                                                                           |
 # | 0.1.0 2020-03-17 Christian Külker <c@c8i.org>                             |
 # |     - initial release                                                     |
@@ -31,7 +35,7 @@ usage:
 	@echo "$(L)"
 	@echo "make usage            : this information"
 	@echo "make info             : print more info"
-	@echo "make clean            : remove porcess files (non so far)"
+	@echo "make clean            : remove porcess files"
 	@echo "make realclean        : remove target"
 	@echo "make markdownclean    : remove all *.md from target (debug)"
 	@echo "make htmlclean        : remove all *.html from target (debug)"
@@ -53,8 +57,9 @@ htmlclean:
 # for development (might remove too much or too less files for a clean build)
 pdfclean:
 	find $(DSTD) -name "*.pdf"|xargs -d '\n' rm -f
-# clean process files (non so far)
+# clean process files
 clean:
+	rm -f pankyll.log pankyll.err pankyll.out
 # clean build target
 realclean: clean
 	rm -rf $(DSTD)
@@ -66,7 +71,13 @@ $(DSTD):
 	mkdir -p $@
 # make sure pankyll is in your PATH
 build: static $(DSTD)
-	pankyll
+	@echo "running pankyll - this can take a while (logfile: pankyll.log)"
+	@echo $(L)
+	pankyll 2>pankyll.err|tee -a pankyll.out
+	@echo $(L)
+	@echo "running pankyll - finished"
+	@echo $(L)
+	@cat pankyll.err
 repository-update:
 	git pull
 submodule-update:
