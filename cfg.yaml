@@ -4,9 +4,12 @@
 # |                                                                           |
 # | This is the Pankyll configuration for the project site.                   |
 # |                                                                           |
-# | Version: 0.1.0                                                            |
+# | Version: 0.1.1                                                            |
 # |                                                                           |
 # | Changes:                                                                  |
+# |                                                                           |
+# | 0.1.1 2020-03-29 Christian Külker <c@c8i.org>                             |
+# |     - add default type 'doc' for unknown types of pages in front matter   |
 # |                                                                           |
 # | 0.1.0 2020-03-24 Christian Külker <c@c8i.org>                             |
 # |     - initial release                                                     |
@@ -21,6 +24,9 @@ site:
   public_dir:  public                      # directory  - mandatory
   themes_dir:  themes                      # directory  - mandatory
   theme_name:  pankyll-theme-newspaper     # directory  - mandatory
+
+type:
+    default: doc
 
 # 2. Feature: Localization - Mandatory
 l10n:           # localization - mandatory
