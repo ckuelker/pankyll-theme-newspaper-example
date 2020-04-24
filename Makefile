@@ -78,7 +78,7 @@ clean:
 submoduleclean:
 	cd pandoc && git checkout master
 	cd content && git checkout master
-	cd themes/pankyll-theme-rankle && git checkout master
+	cd themes/pankyll-theme-$(THEME) && git checkout master
 # clean build target
 realclean: clean
 	rm -rf $(DSTD)
