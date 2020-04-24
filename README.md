@@ -1,17 +1,16 @@
 ---
 title:  pankyll-theme-newspaper-example/README.md
 author: Christian Külker
-date:   2020-03-28
+date:   2020-04-24
 
 ---
 
 # Abstract
 
-This document describes briefly the aim and content for
-`Pankyll-theme-newspaper-example`. The goal of
-`pankyll-theme-newspaper-example` is to show the configuration and usage of
-`pankyull-theme-newspaper` by providing working example with a directory tree
-that can be used as base to build up a new site.
+This document describes briefly the aim and content of the
+`Pankyll-theme-newspaper-example` repository. The goal is to show the
+configuration and usage of the [Pankyll] theme [Newspaper] by providing working
+example with a directory tree that can be used as base to build up a new site.
 
 ![Github license](https://img.shields.io/github/license/ckuelker/pankyll-theme-newspaper-example.svg)
 ![Github issues](https://img.shields.io/github/issues/ckuelker/pankyll-theme-newspaper-example.svg?style=popout-square)
@@ -23,21 +22,23 @@ that can be used as base to build up a new site.
 
 | Version | Date       | Author           | Notes                             |
 | ------- | ---------- | ---------------- | --------------------------------- |
+| 0.1.3   | 2020-04-24 | Christian Külker | Changes to support latest Pankyll |
+| 0.1.2   | 2020-03-29 | Christian Külker | default type, Makefile, log.yaml  |
 | 0.1.1   | 2020-03-28 | Christian Külker | README.md: usage, port, license   |
 | 0.1.0   | 2020-03-22 | Christian Külker | Initial release                   |
 
 # Introduction
 
 More than a 1000 words, a life example can show how things are done the right
-away. This **Pankyll** theme newspaper example is a pre-configured **Pankyll**
+away. This [Pankyll] theme newspaper example is a pre-configured [Pankyll]
 theme with a little bit of content to see how easy it is to set up a
-**Pankyll** site with a newspaper theme.
+[Pankyll] site with a newspaper theme.
 
 # Prerequisites
 
 **TLTR:**
 
-Requires [Pankyll](https://github.com/ckuelker/pankyll/) and for Debian install
+Requires [Pankyll](https://github.com/ckuelker/pankyll/) and for [Debian] install
 the following:
 
 ```bash
@@ -45,16 +46,16 @@ aptitude install pandoc fonts-noto-cjk fonts-wqy-microhei make
 git clone --recursive https://github.com/ckuelker/pankyll-theme-newspaper-example.git
 ```
 
-## Pankyll (Mandatory)
+## Pankyll
 
-We assume that **Pankyll** is installed and that the script `pankyll` is in
-your `PATH`. Read the **Pankyll**
+We assume that [Pankyll] is installed and that the script `pankyll` is in
+your `PATH`. Read the [Pankyll]
 [README.md](https://github.com/ckuelker/pankyll/) for more information.
 
-## Pandoc (Mandatory)
+## Pandoc
 
-**Pandoc** is expected to be installed. While it is possible to run `pankyll`
-with `pandoc` 1.x.x it will not produce good results. **Pankyll** was tested
+[Pandoc] is expected to be installed. While it is possible to run `pankyll`
+with `pandoc` 1.x.x it will not produce good results. [Pankyll] was tested
 with version 2.2.1 and should give good results.
 
 **Installation for Debian:**
@@ -66,13 +67,12 @@ aptitude install pandoc
 ## Fonts
 
 To create PDF files from Markdown, the following fonts seem to produce the best
-results. For **Pankyll** 0.1.0 the names are hard coded, that might change in
+results. For [Pankyll] 0.1.0 the names are hard coded, that might change in
 future releases.
 
 * Noto Sans CJK JP
 * Noto Sans Mono CJK JP Bold
 * WenQuanYi Micro Hei Mono
-
 
 **Installation for Debian:**
 
@@ -170,5 +170,10 @@ Open a browser and access the URL [http://localhost:8000](http://localhost:8000)
     SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE SOFTWARE TO OPERATE
     WITH ANY OTHER SOFTWARE), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN
     ADVISED OF THE POSSIBILITY OF SUCH DAMAGES
+
+[Debian]: https://www.debian.org/
+[Newspaper]: https://github.com/ckuelker/pankyll-theme-newspaper/
+[Pandoc]: https://pandoc.org/
+[Pankyll]: https://www.pankyll.org/
 
 
