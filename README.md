@@ -1,16 +1,19 @@
 ---
-title:  pankyll-theme-newspaper-example/README.md
+title: pankyll-theme-newspaper-example/README.md
 author: Christian Külker
-date:   2020-04-24
+version 0.1.4
+date: 2022-05-09
 
 ---
 
 # Abstract
 
 This document describes briefly the aim and content of the
-`Pankyll-theme-newspaper-example` repository. The goal is to show the
-configuration and usage of the [Pankyll] theme [Newspaper] by providing working
-example with a directory tree that can be used as base to build up a new site.
+`pankyll-theme-newspaper-example` repository.
+
+The goal of this repository is to show the configuration and usage of the
+[Pankyll] theme [Newspaper] by providing a working example with a directory tree
+that can be used as a base to build up a new site.
 
 ![Github license](https://img.shields.io/github/license/ckuelker/pankyll-theme-newspaper-example.svg)
 ![Github issues](https://img.shields.io/github/issues/ckuelker/pankyll-theme-newspaper-example.svg?style=popout-square)
@@ -18,39 +21,47 @@ example with a directory tree that can be used as base to build up a new site.
 ![Git repo size](https://img.shields.io/github/repo-size/ckuelker/pankyll-theme-newspaper-example.svg)
 ![Last commit](https://img.shields.io/github/last-commit/ckuelker/pankyll-theme-newspaper-example.svg)
 
-# Changes
+## History
 
-| Version | Date       | Author           | Notes                             |
-| ------- | ---------- | ---------------- | --------------------------------- |
-| 0.1.3   | 2020-04-24 | Christian Külker | Changes to support latest Pankyll |
-| 0.1.2   | 2020-03-29 | Christian Külker | default type, Makefile, log.yaml  |
-| 0.1.1   | 2020-03-28 | Christian Külker | README.md: usage, port, license   |
-| 0.1.0   | 2020-03-22 | Christian Külker | Initial release                   |
+| Version | Date       | Notes                                                |
+| ------- | ---------- | ---------------------------------------------------- |
+| 0.1.4   | 2022-05-09 | Makefile, version, README                            |
+| 0.1.3   | 2020-04-24 | Changes to support latest Pankyll                    |
+| 0.1.2   | 2020-03-29 | default type, Makefile, log.yaml                     |
+| 0.1.1   | 2020-03-28 | README.md: usage, port, license                      |
+| 0.1.0   | 2020-03-22 | Initial release                                      |
 
 # Introduction
 
 More than a 1000 words, a life example can show how things are done the right
-away. This [Pankyll] theme newspaper example is a pre-configured [Pankyll]
+away. This [Pankyll] theme [newspaper[ example is a pre-configured [Pankyll]
 theme with a little bit of content to see how easy it is to set up a
-[Pankyll] site with a newspaper theme.
+[Pankyll] site with a [newspaper[ theme.
 
 # Prerequisites
 
 **TLTR:**
 
-Requires [Pankyll](https://github.com/ckuelker/pankyll/) and for [Debian] install
-the following:
+Requires [Pankyll] and on [Debian] install the following:
 
-```bash
+As root
+
+```shell
 aptitude install pandoc fonts-noto-cjk fonts-wqy-microhei make
-git clone --recursive https://github.com/ckuelker/pankyll-theme-newspaper-example.git
 ```
+
+As user
+
+```shell
+export URL=https://github.com/ckuelker/pankyll-theme-newspaper-example.git
+git clone --recursive $URL
+```
+
 
 ## Pankyll
 
-We assume that [Pankyll] is installed and that the script `pankyll` is in
-your `PATH`. Read the [Pankyll]
-[README.md](https://github.com/ckuelker/pankyll/) for more information.
+We assume that [Pankyll] is installed and that the script `pankyll` is in your
+`PATH`. Read the [Pankyll] [README.md] for more information.
 
 ## Pandoc
 
@@ -60,7 +71,7 @@ with version 2.2.1 and should give good results.
 
 **Installation for Debian:**
 
-```bash
+```shell
 aptitude install pandoc
 ```
 
@@ -76,7 +87,7 @@ future releases.
 
 **Installation for Debian:**
 
-```bash
+```shell
 aptitude install fonts-noto-cjk fonts-wqy-microhei
 ```
 
@@ -88,7 +99,7 @@ want to use it see the usage section.
 
 **Installation for Debian:**
 
-```bash
+```shell
 aptitude install make
 ```
 
@@ -96,31 +107,28 @@ aptitude install make
 
 Clone the example repository and its sub-modules
 
-```bash
+```shell
 git clone --recursive https://github.com/ckuelker/pankyll-theme-newspaper-example.git
 ```
 
 # Usage
 
-Build the site
+Update, build and see the site:
 
-```bash
+```shell
 cd pankyll-theme-newspaper-example
-make submodule-update # this takes some time
+make submodule-update
+make submoduleclean
+make submodule-pull
 make realclean
 make build
-```
-
-Start a server
-
-```bash
 make server
 ```
 
-Or shorter:
+Or all at once:
 
-```bash
-make submodule-update realclean build server
+```shell
+make all
 ```
 
 Open a browser and access the URL [http://localhost:8000](http://localhost:8000)
@@ -131,49 +139,12 @@ Open a browser and access the URL [http://localhost:8000](http://localhost:8000)
 
 # License And Copyright
 
-    Copyright (C) 2020 by Christian Kuelker
-
-    This program is free software; you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published by the Free
-    Software Foundation; either version 3, or (at your option) any later
-    version.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-    more details.
-
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc., 59
-    Temple Place, Suite 330, Boston, MA 02111-1307 USA
-
-# DISCLAIMER OF WARRANTY
-
-    BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR
-    THE SOFTWARE, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN
-    OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
-    PROVIDE THE SOFTWARE "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
-    OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-    MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO
-    THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU. SHOULD THE
-    SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,
-    REPAIR, OR CORRECTION.
-
-# LIMITATION OF LIABILITY
-
-    IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL
-    ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE
-    THE SOFTWARE AS PERMITTED BY THE ABOVE LICENCE, BE LIABLE TO YOU FOR
-    DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
-    DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING
-    BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES
-    SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE SOFTWARE TO OPERATE
-    WITH ANY OTHER SOFTWARE), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN
-    ADVISED OF THE POSSIBILITY OF SUCH DAMAGES
+    Copyright (C) 2020, 2022 by Christian Kuelker, see LICENSE file.
 
 [Debian]: https://www.debian.org/
 [Newspaper]: https://github.com/ckuelker/pankyll-theme-newspaper/
 [Pandoc]: https://pandoc.org/
 [Pankyll]: https://www.pankyll.org/
-
-
+[Rankle]: https://github.com/ckuelker/pankyll-theme-rankle
+[README.md]: https://github.com/ckuelker/pankyll
+[Simplicissimus]: https://github.com/ckuelker/pankyll-theme-simplicissimus
