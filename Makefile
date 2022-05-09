@@ -3,9 +3,13 @@
 # |                                                                           |
 # | Pankyll-Theme-Newspaper-Example                                           |
 # |                                                                           |
-# | Version: 0.1.4 (change inline)                                            |
+# | Version: 0.1.5 (change inline)                                            |
 # |                                                                           |
 # | Changes:                                                                  |
+# |                                                                           |
+# | 0.1.5 2022-05-09 Christian Külker <c@c8i.org>                             |
+# |     - Unmask pankyll run (better error visibility)                        |
+# |     - Add Python yaml Loader parameter (safer)                            |
 # |                                                                           |
 # | 0.1.4 2022-05-08 Christian Külker <c@c8i.org>                             |
 # |     - Add test from theme rankle                                          |
@@ -42,7 +46,7 @@
 #
 # Makefile version
 THEME:=newspaper
-VERSION=0.1.4
+VERSION=0.1.5
 PORT=8000
 NS=pankyll-theme-$(THEME)-example
 # -----------------------------------------------------------------------------
@@ -70,9 +74,14 @@ else
   PDFLATEX=$(shell which pdflatex)
 endif
 HOST=$(shell hostname)
-DSTD=$(shell python3 -c "import yaml;print(yaml.load(open('cfg.yaml'))['site']['public_dir'])")
-PFX=$(shell python3 -c "import yaml;print(yaml.load(open('cfg.yaml'))['site']['url'])")
-LOC=$(shell python3 -c "import yaml;print(yaml.load(open('cfg.yaml'))['default']['l10n_locale'])")
+# Python yaml 5.1 require Loader= parameter, see
+# https://github.com/yaml/pyyaml/wiki/PyYAML-yaml.load(input)-Deprecation
+# python3 -c "import yaml;print(yaml.load(open('cfg.yaml'), Loader=yaml.SafeLoader)['site']['public_dir'])"
+PYB :=  python3 -c "import yaml;print(yaml.load(open('cfg.yaml'), Loader=yaml.SafeLoader)['
+PYE := '])"
+DSTD=$(shell $(PYB)site']['public_dir$(PYE))
+PFX=$(shell $(PYB)site']['url$(PYE))
+LOC=$(shell $(PYB)default']['l10n_locale$(PYE))
 PFXDIR=$(shell echo "$(PFX)"|sed -e 's%^/%%')
 NPROC=$(shell nproc)
 WDIR=$(shell echo $(DSTD) $(PFXDIR)|tr ' ' '/') # public | public/PFXDIR
@@ -129,7 +138,7 @@ publicclean:
 	rm -rf $(DSTD)
 # clean process files
 clean:
-	rm -f pankyll.log pankyll.err pankyll.out pankyll.rsync
+	rm -f pankyll.log pankyll.rsync
 # the make the submodule clean: WARNING changes will be lost
 submoduleclean:
 	cd pandoc && git checkout master
@@ -147,11 +156,10 @@ $(DSTD):
 build: static $(DSTD)
 	@echo "running pankyll - this can take a while (logfile: pankyll.log)"
 	@echo $(L)
-	pankyll 2>pankyll.err|tee -a pankyll.out
+	pankyll
 	@echo $(L)
 	@echo "running pankyll - finished"
 	@echo $(L)
-	@cat pankyll.err
 	sed -i -e 's%=/en_US/index.html%=$(PFX)/$(LOC)/index.html%' $(DSTD)/index.html
 	sed -i -e 's%=//en_US/index.html%=/$(LOC)/index.html%' $(DSTD)/index.html
 repository-update:
