@@ -1,7 +1,7 @@
 ---
 title: pankyll-theme-newspaper-example/README.md
 author: Christian Külker
-version 0.1.4
+version 0.1.5
 date: 2022-05-09
 
 ---
@@ -12,8 +12,8 @@ This document describes briefly the aim and content of the
 `pankyll-theme-newspaper-example` repository.
 
 The goal of this repository is to show the configuration and usage of the
-[Pankyll] theme [Newspaper] by providing a working example with a directory tree
-that can be used as a base to build up a new site.
+[Pankyll] theme [Newspaper] by providing a working example with a directory
+tree that can be used as a base to build up a new site.
 
 ![Github license](https://img.shields.io/github/license/ckuelker/pankyll-theme-newspaper-example.svg)
 ![Github issues](https://img.shields.io/github/issues/ckuelker/pankyll-theme-newspaper-example.svg?style=popout-square)
@@ -25,6 +25,7 @@ that can be used as a base to build up a new site.
 
 | Version | Date       | Notes                                                |
 | ------- | ---------- | ---------------------------------------------------- |
+| 0.1.5   | 2022-05-09 | Makefile                                             |
 | 0.1.4   | 2022-05-09 | Makefile, version, README                            |
 | 0.1.3   | 2020-04-24 | Changes to support latest Pankyll                    |
 | 0.1.2   | 2020-03-29 | default type, Makefile, log.yaml                     |
