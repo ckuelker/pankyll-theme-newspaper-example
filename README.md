@@ -1,8 +1,8 @@
 ---
 title: pankyll-theme-newspaper-example/README.md
 author: Christian Külker
-version 0.1.5
-date: 2022-05-09
+version 0.1.6
+date: 2022-05-20
 
 ---
 
@@ -25,6 +25,9 @@ tree that can be used as a base to build up a new site.
 
 | Version | Date       | Notes                                                |
 | ------- | ---------- | ---------------------------------------------------- |
+| 0.1.6   | 2022-05-20 | cfg.yaml: +feature, doc 0.2.0, pandoc 0.1.1,         |
+|         |            | theme 0.1.4, Makefile: improve info tgt,             |
+|         |            | +update tgt, +submoduleclean dep                     |
 | 0.1.5   | 2022-05-09 | Makefile                                             |
 | 0.1.4   | 2022-05-09 | Makefile, version, README                            |
 | 0.1.3   | 2020-04-24 | Changes to support latest Pankyll                    |
