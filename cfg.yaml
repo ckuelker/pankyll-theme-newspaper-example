@@ -4,18 +4,18 @@
 # |                                                                           |
 # | This is the Pankyll configuration for the project site.                   |
 # |                                                                           |
-# | Version: 0.1.2                                                            |
+# | Version: 0.1.3                                                            |
 # |                                                                           |
 # | Changes:                                                                  |
 # |                                                                           |
+# | 0.1.3 2022-05-20 Christian Külker <c@c8i.org>                             |
+# |     - Support latest Pankyll features                                     |
 # | 0.1.2 2020-04-24 Christian Külker <c@c8i.org>                             |
-# |     - change to latest format                                             |
-# |                                                                           |
+# |     - Change to latest format                                             |
 # | 0.1.1 2020-03-29 Christian Külker <c@c8i.org>                             |
-# |     - add default type 'doc' for unknown types of pages in front matter   |
-# |                                                                           |
+# |     - Add default type 'doc' for unknown types of pages in front matter   |
 # | 0.1.0 2020-03-24 Christian Külker <c@c8i.org>                             |
-# |     - initial release                                                     |
+# |     - Initial release                                                     |
 # |                                                                           |
 # +---------------------------------------------------------------------------+
 #
@@ -26,8 +26,46 @@ default:
     l10n_locale:       en_US   # Feature 2: Localization
     pdf_create:        False
     index_list_type:   cards   # Feature 7: Keywords
-    css_local:         False
-    js_local:          False
+
+feature:
+    # 0  Default               Default Values for site cfg.yaml
+    # 1  Site                  Site wide configuration in cfg.yaml
+    # 2  Internationalization  Prepare Pankyll for localization
+    # 3  Imprint               URL + text for imprint page
+    # 4  Home                  URL + text for site root link
+    # 5  Navigation            URL + text for navigation bar
+    # 6  Table of contents TOC Text for Table of contents title
+    # 7  Keywords              Types of keywords (tags, …)
+    # 8  More Menu             URL + text for a menu called More
+    # 9  Site Description      description for Home feature
+    # 10 Footer                URL, text + position footer links
+    # 11 Default Frontmatter
+    # 12 Include Before
+    # 13 Include After
+    # 14 Word Count            Count words of Markdown document approximately
+    # 15 CSS Local             Copy CSS to local site (no remote URLs)
+    # 16 JS Local              Copy Javascript to local site (no remote URLs)
+    # 17 Create PDF            Create PDF from Markdown via Pandoc
+    # 18 Top 10                Link list to 10 latest pages
+    default_values: True
+    global_site_parameter: True
+    internationalization: True
+    imprint: True
+    home: True
+    navigation: True
+    toc: True  # True|False
+    keywords: True
+    more_menue: True
+    site_description: True
+    footer: True
+    default_frontmatter: True
+    include_before: True
+    include_after: True
+    word_count: True      # True|False
+    css_local: False
+    js_local: False
+    pdf_create: True  # True|False
+    top10: True # True|False
 
 # 1. Global site parameters
 site:
