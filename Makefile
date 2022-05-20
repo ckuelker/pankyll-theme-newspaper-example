@@ -3,14 +3,17 @@
 # |                                                                           |
 # | Pankyll-Theme-Newspaper-Example                                           |
 # |                                                                           |
-# | Version: 0.1.5 (change inline)                                            |
+# | Version: 0.1.6 (change inline)                                            |
 # |                                                                           |
 # | Changes:                                                                  |
 # |                                                                           |
+# | 0.1.6 2022-05-20 Christian Külker <c@c8i.org>                             |
+# |     - Improve 'info' target                                               |
+# |     - Add 'update' target                                                 |
+# |     - Add submoduleclean dependencies                                     |
 # | 0.1.5 2022-05-09 Christian Külker <c@c8i.org>                             |
 # |     - Unmask pankyll run (better error visibility)                        |
 # |     - Add Python yaml Loader parameter (safer)                            |
-# |                                                                           |
 # | 0.1.4 2022-05-08 Christian Külker <c@c8i.org>                             |
 # |     - Add test from theme rankle                                          |
 # |     - Fix static DSTD                                                     |
@@ -19,14 +22,12 @@
 # |     - Add target 'all'                                                    |
 # |     - Add repository-update to .PHONY                                     |
 # |     - Change target linkcheck-local-extern to linkcheck-extern            |
-# |                                                                           |
 # | 0.1.3 2020-04-29 Christian Külker <c@c8i.org>                             |
 # |     - Add more phony targets                                              |
 # |     - Read configuration partly from cfg.yaml                             |
 # |     - Build example root index.html                                       |
 # |     - Server target supports URL prefix                                   |
 # |     - Fix URL for root index.html for prefix /                            |
-# |                                                                           |
 # | 0.1.2 2020-04-24 Christian Külker <c@c8i.org>                             |
 # |     - Add target submoduleclean                                           |
 # |     - Add target submodule-pull                                           |
@@ -34,11 +35,9 @@
 # |     - Add theme variable                                                  |
 # |     - Improve server target                                               |
 # |     - Add linkcheck targets                                               |
-# |                                                                           |
 # | 0.1.1 2020-03-29 Christian Külker <c@c8i.org>                             |
 # |     - Capture pankyll output: pankyll.err, pankyll.out, pankyll.log       |
 # |     - Clean: removes pankyll.err, pankyll.out, pankyll.log                |
-# |                                                                           |
 # | 0.1.0 2020-03-17 Christian Külker <c@c8i.org>                             |
 # |     - Initial release                                                     |
 # |                                                                           |
@@ -46,7 +45,7 @@
 #
 # Makefile version
 THEME:=newspaper
-VERSION=0.1.5
+VERSION=0.1.6
 PORT=8000
 NS=pankyll-theme-$(THEME)-example
 # -----------------------------------------------------------------------------
@@ -112,7 +111,7 @@ usage:
 	@echo "make repository-update: update git repository"
 	@echo "make build            : build project"
 	@echo "make server           : start a development server on port $(PORT)"
-	@echo "make all              : update submodules, realclean, build, server"
+	@echo "make all              : update realclean build server"
 info:
 	@echo "NS     : [$(NS)]"
 	@echo "VERSION: [$(VERSION)]"
@@ -164,15 +163,16 @@ build: static $(DSTD)
 	sed -i -e 's%=//en_US/index.html%=/$(LOC)/index.html%' $(DSTD)/index.html
 repository-update:
 	git pull
-submodule-update:
+submodule-update: submoduleclean
 	git submodule update --remote
 	git submodule update --init --recursive --jobs $(NPROC)
 	cd themes/pankyll-theme-$(THEME) && git submodule update --remote
 	cd themes/pankyll-theme-$(THEME) && git submodule update --init --recursive --jobs $(NPROC)
-submodule-pull:
+submodule-pull: submoduleclean
 	cd pandoc && git pull
 	cd content && git pull
 	cd themes/pankyll-theme-$(THEME) && git pull
+update: submoduleclean submodule-update submodule-pull repository-update
 server:
 	@if [ "$(PFX)" = "/" ]; then \
 	    echo "$(L)\nhttp://localhost:$(PORT)\nhttp://${HOST}:$(PORT)\n$(L)"; \
