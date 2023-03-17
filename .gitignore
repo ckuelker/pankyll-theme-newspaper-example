@@ -1,3 +1,6 @@
 pankyll.rsync
 *.swp
 *~
+log
+pankyll.log
+public
