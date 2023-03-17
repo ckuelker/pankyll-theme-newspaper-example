@@ -4,10 +4,12 @@
 # |                                                                           |
 # | This is the Pankyll configuration for the project site.                   |
 # |                                                                           |
-# | Version: 0.1.3                                                            |
+# | Version: 0.1.4                                                            |
 # |                                                                           |
 # | Changes:                                                                  |
 # |                                                                           |
+# | 0.1.4 2023-03-17 Christian Külker <c@c8i.org>                             |
+# |     - Improve writing, comments                                           |
 # | 0.1.3 2022-05-20 Christian Külker <c@c8i.org>                             |
 # |     - Support latest Pankyll features                                     |
 # | 0.1.2 2020-04-24 Christian Külker <c@c8i.org>                             |
@@ -28,25 +30,30 @@ default:
     index_list_type:   cards   # Feature 7: Keywords
 
 feature:
-    # 0  Default               Default Values for site cfg.yaml
-    # 1  Site                  Site wide configuration in cfg.yaml
-    # 2  Internationalization  Prepare Pankyll for localization
-    # 3  Imprint               URL + text for imprint page
-    # 4  Home                  URL + text for site root link
-    # 5  Navigation            URL + text for navigation bar
-    # 6  Table of contents TOC Text for Table of contents title
-    # 7  Keywords              Types of keywords (tags, …)
-    # 8  More Menu             URL + text for a menu called More
-    # 9  Site Description      description for Home feature
-    # 10 Footer                URL, text + position footer links
-    # 11 Default Frontmatter
-    # 12 Include Before
-    # 13 Include After
-    # 14 Word Count            Count words of Markdown document approximately
-    # 15 CSS Local             Copy CSS to local site (no remote URLs)
-    # 16 JS Local              Copy Javascript to local site (no remote URLs)
-    # 17 Create PDF            Create PDF from Markdown via Pandoc
-    # 18 Top 10                Link list to 10 latest pages
+    # NR Feature               Cfg         Note
+    # -- --------------------- ----------  ------------------------------------
+    #  0 Default               default     Default Values for site
+    #  1 Site                  site        Site wide configuration
+    #  2 Internationalization  locales     Support for localization
+    #  3 Imprint               imprint     URL + text for imprint page
+    #  4 Home                  home        URL + text for site root link
+    #  5 Navigation            navigation  URL + text for navigation bar
+    #  6 Table of contents TOC toc         Text for Table of contents title
+    #  7 Keywords              keywords    Types of keywords (tags, …)
+    #                          categories
+    #                          tags
+    #                          ...
+    #  8 More Menu             more        URL + text for a menu called More
+    #  9 Site Description      description For Home feature
+    # 10 Footer                feature     URL, text + position footer links
+    # 11 Default Frontmatter   feature
+    # 12 Include Before        feature
+    # 13 Include After         feature
+    # 14 Word Count            feature     Count approx. words of Markdown file
+    # 15 CSS Local             feature     Copy CSS locally, no remote URL
+    # 16 JS Local              feature     Copy JavaSript locally, no remote URL
+    # 17 Create PDF            feature     Create PDF from Markdown via Pandoc
+    # 18 Top 10                feature     Link list to 10 latest pages
     default_values: True
     global_site_parameter: True
     internationalization: True
@@ -199,10 +206,13 @@ toc:
         text: 目次
 
 # 7. Feature: Keywords
-# keywords: let pages define classes of keywords usually this is 'categories'
-#           and 'tags' but also others can be defined. If one class is added
-#           in this list, also a YAML section with the same name need to be
-#           added that defines 'text' and 'url' in all suported locales.
+#
+# keywords: Let pages define classes of keywords, usually these are
+#           'categories' and 'tags', but others can be defined. If a class is
+#           added to this list, a YAML section with the same name must also be
+#           added, which defines 'text' and 'url' in all supported locales.
+#           For this example we have 'categories:' and 'tags:'.
+#
 keywords:
     - categories
     - tags
@@ -228,7 +238,7 @@ tags:
     ja_JP:
         text: タグ
         url:  ja_JP/タグ/
-# 8. Feature: More-Menu (not used by newspaper theme)
+# 8. Feature: More-Menu (not used by the newspaper theme)
 more:
     en_US:
         - link:
